@@ -1,3 +1,3 @@
-# leetcode-grind
+# LeetCode-Grind
 
 ### Leetcode Solution Pracice
