@@ -5,11 +5,11 @@
  */
 var addTwoPromises = async function(promise1, promise2) {
     // concept 1
-    // return await promise1 + await promise2;
+    return await promise1 + await promise2;
 
     // concept 2
-    const [p1, p2] = await Promise.all([promise1, promise2]);
-    return p1 + p2;
+    // const [p1, p2] = await Promise.all([promise1, promise2]);
+    // return p1 + p2;
 };
 
 /**
