@@ -4,22 +4,10 @@
  * @return {number}
  */
 var findKthPositive = function (arr, k) {
-    const arrayMap = new Map();
-    const missingNumbers = [];
-    let missNum = 1;
-
-    arr.forEach(val => {
-        arrayMap.set(val, val);
+    arr.forEach(num => {
+        if (num <= k) ++k;
+        else return;
     });
 
-    while (k > 0) {
-        if (!arrayMap.has(missNum)) {
-            missingNumbers.push(missNum);
-            k--;
-        }
-
-        missNum++;
-    }
-
-    return missingNumbers[missingNumbers.length - 1];
+    return k;
 };
