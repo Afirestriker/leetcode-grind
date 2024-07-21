@@ -4,22 +4,19 @@
  * @return {number[]}
  */
 var twoSum = function(nums, target) {
-    const answer = [];
+    const numMap = new Map();
+    let ans = [];
 
-    loop1:
-    for (let n = 0; n < nums.length; n++) {
-        answer[0] = n;
+    for (let i = 0; i < nums.length; i++) {
+        const find = target - nums[i];
 
-        const toFind = target - nums[n];
-
-        loop2:
-        for (let i = n + 1; i < nums.length; i++) {
-            if (nums[i] === toFind) {
-                answer[1] = i;
-                break loop1;
-            }
+        if (numMap.has(find)) {
+            ans = [numMap.get(find), i];
+            break;
+        } else {
+            numMap.set(nums[i], i);
         }
     }
 
-    return answer;
+    return ans;
 };
