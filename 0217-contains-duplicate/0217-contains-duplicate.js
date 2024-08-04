@@ -3,13 +3,15 @@
  * @return {boolean}
  */
 var containsDuplicate = function(nums) {
-    const duplicateKey = {};
+    const duplicateCheck = new Set();
 
-    for (let i = 0; i < nums.length; i++) {
-        if (!duplicateKey[nums[i]])
-            duplicateKey[nums[i]] = 1;
-        else 
-            return true;
+    for (const num of nums) {
+        if (!duplicateCheck.has(num)) {
+            duplicateCheck.add(num)
+            continue;
+        }
+
+        return true;
     }
 
     return false;
