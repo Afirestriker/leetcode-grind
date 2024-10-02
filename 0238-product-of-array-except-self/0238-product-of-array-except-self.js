@@ -4,17 +4,17 @@
  */
 var productExceptSelf = function(nums) {
     const output = nums.slice().fill(1);
-    let left = 1;
-    let right = 1;
-
+    let prefix = 1;
+    let suffix = 1;
+ 
     nums.forEach((num, index) => {
         const revIndex = nums.length - (index + 1);
 
-        output[index] = output[index] * left;
-        left = left * nums[index];
+        output[index] *= prefix;
+        prefix *= nums[index];
 
-        output[revIndex] = output[revIndex] * right;
-        right = right * nums[revIndex];
+        output[revIndex] *= suffix;
+        suffix *= nums[revIndex];
     });
 
     return output;
